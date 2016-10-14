@@ -56,7 +56,7 @@ router.post('/update',function(req,res,next){
                		res.render('edit_user',{title:'Edit user',msg:'username already in use.Try another',csrfToken:req.csrfToken()});
                	}
                }else{
-               	res.redirect('/dashboard');
+               	res.redirect('/login');
                }
            });
  }

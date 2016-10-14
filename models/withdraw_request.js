@@ -41,5 +41,5 @@ module.exports.getAllWithdrawRequest =function(callback){
 	WithdrawRequest.find(callback);
 };
 module.exports.updateAWithdrawalRequest = function(id,done,callback){
-	WithdrawRequest.update({_id:id},{$set:{done:done}},callback);
+	WithdrawRequest.findOneAndUpdate({_id:id},{$set:{done:done}},callback);
 };

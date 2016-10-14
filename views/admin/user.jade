@@ -1,39 +1,38 @@
 extends admin_layout
 block content
-	.container
-		h1 List of users
-		div.table-responsive
-			table.table.table-bordered.table-striped.table-condensed
-				thead
+	h1 List of users
+	div.table-responsive
+		table.table.table-bordered.table-striped.table-condensed
+			thead
+				tr
+					th First name
+					th Last name
+					th Username
+					th Email
+					th Phone number
+					th Alternate phone number
+					th Joined date
+					th Main balance
+					th Bonus
+					th Total balance
+					th Withdrawable balance
+					th Actions
+			tbody
+			if users
+				each user,i in users
 					tr
-						th First name
-						th Last name
-						th Username
-						th Email
-						th Phone number
-						th Alternate phone number
-						th Joined date
-						th Main balance
-						th Bonus
-						th Total balance
-						th Withdrawable balance
-						th Actions
-				tbody
-				if users
-					each user,i in users
-						tr
-							td #{user.firstname}
-							td #{user.lastname}
-							td #{user.username}
-							td #{user.email}
-							td 0#{user.phone_number}
-							td 0#{user.alternate_phone_number}
-							td #{user.joinedDate}
-							td #{user.balance}
-							td #{user.bonus}
-							td #{user.total_balance}
-							td #{user.withdrawable_balance}
-							td 
-								a(href= '/admin/credit_account?username=#{user.username}') credit account
-							
+						td #{user.firstname}
+						td #{user.lastname}
+						td #{user.username}
+						td #{user.email}
+						td #{user.phone_number}
+						td #{user.alternate_phone_number}
+						td #{user.joinedDate}
+						td #{user.balance}
+						td #{user.bonus}
+						td #{user.total_balance}
+						td #{user.withdrawable_balance}
+						td 
+							a(href= '/admin/credit_account?username=#{user.username}') credit account
+						
 

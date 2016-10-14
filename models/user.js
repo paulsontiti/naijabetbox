@@ -71,7 +71,7 @@ module.exports.getAllUsers =function(callback){
 	User.find(callback);
 };
 module.exports.updateAUser =function(username,updateParams,callback){
-	User.update({username:username},{$set:updateParams},callback);
+	User.findOneAndUpdate({username:username},{$set:updateParams},callback);
 };
 module.exports.getUserById =function(id,callback){
 	User.findById(id,callback);
@@ -80,7 +80,7 @@ module.exports.creditAccount =function(user_name,amount,callback){
 			var	bonus = amount * 0.05,
 			total = Number(amount) + Number(bonus),
 			withdrawable = amount - (amount * 0.025);
-		User.update({username:user_name},
+		User.findOneAndUpdate({username:user_name},
 			{$inc:{balance:amount,bonus:bonus,total_balance:total,withdrawable_balance:withdrawable}}
 			,callback);
 	

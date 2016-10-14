@@ -37,5 +37,5 @@ module.exports.getAllRechargeRequest = function(callback){
 	RechargeRequest.find(callback);
 };
 module.exports.updateARechargeRequest = function(id,done,callback){
-	RechargeRequest.update({_id:id},{$set:{done:done}},callback);
+	RechargeRequest.findOneAndUpdate({_id:id},{$set:{done:done}},callback);
 };

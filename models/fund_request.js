@@ -33,5 +33,5 @@ module.exports.getAllFundRequest =function(callback){
 	FundRequest.find(callback);
 };
 module.exports.updateAFundRequest = function(id,done,callback){
-	FundRequest.update({_id:id},{$set:{done:done}},callback);
+	FundRequest.findOneAndUpdate({_id:id},{$set:{done:done}},callback);
 };
