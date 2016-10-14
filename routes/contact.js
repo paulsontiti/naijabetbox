@@ -47,7 +47,7 @@ router.post('/send',function(req,res,next){
 			});
 			var mailOptions = {
 				from:username + '<'+email+'>',
-				to:'titidprogrammer@gmail.com',
+				to:'evatelmedia@gmail.com',
 				subject:subject,
 				html:'<p>A user contacted you with the following details....</p><ul><li>Username: '+username+'</li><li>Email: '+email+'</li><li>Phone number: '+phone+'</li><li>Message: '+message+'</li></ul>'
 			}
