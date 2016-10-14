@@ -1,0 +1,39 @@
+extends layout
+block content
+	.container
+		.row
+			.col-lg-4
+			.col-lg-4
+				if msg
+					label.alert.alert-danger #{msg}
+				if confirmMsg
+					label.alert.alert-success #{confirmMsg}
+				fieldset
+					legend Please fill in your recharge details
+					if errors
+						ul.errors
+							each error,i in errors
+								li.alert.alert-danger #{error.msg}
+					form(method='post',action='/buy_airtime/recharge')
+						input(type='hidden',name='_csrf',value=csrfToken)
+						.form-group
+							sup *
+							label Network
+							select.form-control(name='network')
+								option select a network
+								option Mtn
+								option Glo
+								option Airtel
+								option Etisalat
+						.form-group
+							sup *
+							label Phone number
+							input.form-control(type='text',placeholder='your phone number',name='phone_number')
+						.form-group
+							sup *
+							label Amount
+							input.form-control(type='number',placeholder='how much recharge do you want?',name='amount')
+						br
+						button.btn.btn-success(type='submit') Recharge
+
+			.col-lg-4

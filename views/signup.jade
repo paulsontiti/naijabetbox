@@ -1,0 +1,47 @@
+extends layout
+block content
+  .container
+    .row
+      .col-lg-3
+      .col-lg-6
+        form(method='post',action='/signup/sign-up')
+          input(type='hidden',name='_csrf',value=csrfToken)
+          h1 Sign up
+          if msg
+             label.alert.alert-danger #{msg}
+          ul.errors
+                if errors
+                  each error,i in errors
+                      li.alert.alert-danger #{error.msg}
+          .form-group
+             sup *
+             label First name
+             input.form-control(name='firstname',type='text',placeholder='enter your first name',autofocus='true',value=(!userSignUp ? ' ' : '#{userSignUp.firstname}'))
+          .form-group
+             sup *
+             label Last name
+             input.form-control(name='lastname',type='text',placeholder='enter your last name',value=(!userSignUp ? ' ' : '#{userSignUp.lastname}'))   
+          .form-group
+             sup *
+             label Username
+             input.form-control(name='username',type='text',placeholder='enter your username',value=(!userSignUp ? ' ' : '#{userSignUp.username}'))   
+          .form-group
+             sup *
+             label Email
+             input.form-control(name='email',type='email',placeholder='enter your email address',value=(!userSignUp ? ' ' : '#{userSignUp.email}'))  
+          .form-group
+             sup *
+             label Password
+             input.form-control(name='password',type='password',placeholder='enter your password')       
+          .form-group
+             sup *
+             label Confirm password
+             input.form-control(name='confirmPassword',type='password',placeholder='confirm your password')  
+          .form-group
+             sup *
+             label Phone number
+             input.form-control(name='phone_number',type='text',placeholder='enter your phone number',value=(!userSignUp ? ' ' : '#{userSignUp.phone_number}')) 
+          .form-group
+             label Alternate phone number
+             input.form-control(name='alternate_phone_number',type='text',placeholder='enter an alternate phone number',value=(!userSignUp ? ' ' : '#{userSignUp.alternate_phone_number}'))     
+          button.btn.btn-success(type='submit') Sign up    

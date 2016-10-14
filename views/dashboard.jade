@@ -1,0 +1,41 @@
+extends layout
+block content
+	.container
+		.col-lg-4
+		.col-lg-4
+			if user
+				label First name:   
+				span    #{user.firstname}
+				br
+				label Last name:   
+				span    #{user.lastname}
+				br
+				label Username:   
+				span    #{user.username}
+				br
+				label Email:   
+				span    #{user.email}
+				br
+				label Phone number:   
+				span    #{user.phone_number}
+				br
+				label Alternate phone number:   
+				span    #{user.alternate_phone_number}
+				br
+				label Joined date:   
+				span    #{user.joinedDate}
+				br
+				label Balance:   
+				span   N #{user.balance}
+				br
+				label Bonus:   
+				span   N #{user.bonus}
+				br
+				label Total:   
+				span    N #{user.total_balance}
+				br
+				label Withdrawable balance:   
+				span     N #{user.withdrawable_balance}
+				br
+				a.btn.btn-success(href='/edit_user') Edit/Update
+

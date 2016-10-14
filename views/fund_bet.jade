@@ -1,0 +1,37 @@
+extends layout
+block content
+	.container
+		.row
+			.col-lg-4
+			.col-lg-4
+				if msg
+					label.alert.alert-danger #{msg}
+				if confirmMsg
+					label.alert.alert-success #{confirmMsg}
+				fieldset
+					legend Please fill in your funding details
+					if errors
+						ul.errors
+							each error,i in errors
+								li.alert.alert-danger #{error.msg}
+					form(method='post',action='/fund_bet/fund_bet')
+						input(type='hidden',name='_csrf',value=csrfToken)
+						.form-group
+							label Betting username
+							input.form-control(type='text',placeholder='your username for betting',name='username',autofocus=true)
+						.form-group
+							label Betting company
+							select.form-control(name='bet_company')
+								option select your betting company
+								option Bet9ja
+								option Nairabet
+								option Surebet247
+								option Merrybet
+						
+						.form-group
+							label Amount
+							input.form-control(type='number',placeholder='how much do you want to fund?',name='amount')
+						br
+						button.btn.btn-success(type='submit') Fund bet
+
+			.col-lg-4

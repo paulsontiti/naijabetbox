@@ -1,0 +1,8 @@
+.container
+	if !user || username
+		div.login
+			a.btn.btn-primary(href='/login') Login
+			a.btn.btn-success(href='/signup') Sign up
+	else	
+		div.logout
+			a.btn.btn-success(href='/login/logout') Logout	

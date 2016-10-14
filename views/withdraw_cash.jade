@@ -1,0 +1,58 @@
+extends layout
+block content
+    .container
+      .row
+        .col-lg-4
+          sup ***
+          span Note: You will be charged 2.5% of your main balance
+        .col-lg-4
+            fieldset
+                if errors
+                  ul.errors
+                    each error,i in errors
+                     li.alert.alert-danger #{error.msg}
+                if msg
+                   label.alert.alert-danger #{msg}
+                if confirmMsg
+                   label.alert.alert-success #{confirmMsg}
+                legend Please fill in your bank account details
+                form(method='post',action='/withdraw_cash/withdraw')
+                  input(type='hidden',name='_csrf',value=csrfToken)
+                  .form-group
+                     sup *
+                     label First name
+                     input.form-control(type='text',placeholder='your firstname as with your bank account details',name='firstname',autofocus=true)
+                  .form-group
+                     sup *
+                     label Surname
+                     input.form-control(type='text',placeholder='your surname as with your bank account details',name='surname')
+                  .form-group
+                     sup *
+                     label Bank
+                     select.form-control(name='bank')
+                       option select your bank
+                       option Zenith
+                       option First
+                       option Fidelity
+                       option GTB
+                       option Oceanic
+                       option Keystone
+                       option Diamond
+                       option UBA
+                       option Sterling
+                       option Mainstream
+                       option Fidelity
+                       option Access
+                  .form-group
+                    sup *
+                    label Account number
+                    input.form-control(type='text',placeholder='your account number',name='account_number')
+                  .form-group
+                    sup *
+                    label Amount
+                    input.form-control(type='number',placeholder='amount to withdraw',name='amount')
+                  br
+                  button.btn.btn-success(type='submit') Withdraw
+
+        .col-lg-4
+            

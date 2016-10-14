@@ -1,0 +1,31 @@
+extends admin_layout
+block content
+	.container
+		h1 Request for withdrawal
+		if request
+			div.table-responsive
+				table.table.table-bordered.table-striped
+					thead
+						tr
+							th First name
+							th Surname
+							th Bank
+							th Account Number
+							th Amount
+							th Requested date
+							th Done
+							th Actions
+					tbody
+						each req,i in request
+							tr
+								td #{req.firstname}
+								td #{req.surname}
+								td #{req.bank}
+								td #{req.account_number}
+								td #{req.amount}
+								td #{req.request_date}
+								td #{req.done}
+								td
+									a(href='/admin/edit_withdraw_request?id=#{req._id}&done=#{req.done}') Edit
+		else
+			h4 No request	

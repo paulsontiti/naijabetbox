@@ -1,0 +1,79 @@
+body {
+  padding-top: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+      background-color: white;
+      color: black;
+      margin-top: 70px;
+}
+
+div.login{
+	float:right;
+	margin-top: 10px;
+}
+div.logout{
+	float:right;
+	margin-top: 10px
+}
+div.login a{
+	margin-right: 10px;
+	color:white;
+}
+div.login a.forgot-password{
+	color: green;
+	margin-right:40px;
+}
+div.login a.register{
+	color: red;
+}
+.login-errors{
+	color: red;
+}
+
+a {
+  color: #00B7FF;
+}
+.logo{
+	margin-right: 50px;
+	width: 100px;
+	height: 50px;
+}
+
+nav div.container div#navbar ul.nav.navbar-nav li.sign-in-up{
+	float: right;
+}
+.container .jumbotron    { 
+	border-radius:40px; 
+	    padding: 30px;
+    margin-bottom: 30px;
+    color: orange;
+    background-color: #4e5d6c;
+}
+footer{
+	margin-top: 100px;
+}
+footer h4{
+	color: orange;
+}
+footer li{
+	color: black;
+}
+h1{
+	color: orange;
+}
+.container .row .col-lg-4 h1{
+	text-align: center;
+}
+.copyright{
+	margin-top: 50px;
+}
+.contact{
+	background-color: gray;
+	margin-top: 100px;
+}
+.user-info{
+	float: right;
+	margin-top: 0px;
+}
+.user-info a{
+	color: orange;
+}

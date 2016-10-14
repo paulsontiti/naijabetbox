@@ -1,0 +1,27 @@
+extends admin_layout
+block content
+	.container
+		h1 Request for funding
+		if request
+			div.table-responsive
+				table.table.table-bordered.table-striped
+					thead
+						tr
+							th Username
+							th Betting company
+							th Amount
+							th Requested date
+							th Done
+							th Actions
+					tbody
+						each req,i in request
+							tr
+								td #{req.username}
+								td #{req.betting_company}
+								td #{req.amount}
+								td #{req.request_date}
+								td #{req.done}
+								td
+									a(href='/admin/edit_fund_request?id=#{req._id}&done=#{req.done}') Edit
+		else
+			h4 No request	

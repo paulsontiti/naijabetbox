@@ -1,0 +1,42 @@
+extends layout
+
+block content
+	.container
+		.row
+			.col-lg-3
+
+			.col-lg-6
+				form(method='post',action='/contact/send')
+					input(type='hidden',name='_csrf',value=csrfToken)
+					if msg
+						label.alert.alert-danger #{msg}
+					if confirmMsg
+						label.alert.alert-success #{confirmMsg}
+					h1 Contact us
+					ul.errors
+							if errors
+									each error,i in errors
+											li.alert.alert-danger #{error.msg}
+					.form-group
+							sup *
+							label Username
+							input.form-control(name='username',type='text',placeholder='enter your username',autofocus='true')
+					.form-group
+							sup *
+							label Email
+							input.form-control(name='email',type='email',placeholder='enter your email address')  
+					.form-group
+							sup *
+							label Phone number
+							input.form-control(name='phonenumber',type='text',placeholder='enter your phone number')     
+					.form-group
+							sup *
+							label Subject
+							input.form-control(name='subject',type='text',placeholder='enter the subject')       
+					.form-group
+							sup *
+							label Message
+							textarea.form-control(name='message',placeholder='enter your message',rows='20',column='10')  
+					br
+					button.btn.btn-success(type='submit') Submit   
+			.col-lg-3           

@@ -1,0 +1,20 @@
+extends admin_layout
+block content
+	.container
+		.row
+			.col-lg-4
+			.col-lg-4
+				fieldset
+					legend Credit user account
+					if errors
+						ul.errors
+							each error,i in errors
+								li.alert.alert-danger #{error.msg}
+					label Username:
+					span  #{username}
+					form(method='post',action='/admin/credit_account/credit_account?username=#{username}')
+						input(type='hidden',name='_csrf',value=csrfToken)
+						.form-group
+							label Amount
+							input.form-control(type='number',name='amount',autofocus=true)
+						button.btn.btn-success(type='submit') Credit account

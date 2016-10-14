@@ -1,0 +1,30 @@
+extends layout
+block content
+	.container
+		.row
+			.col-lg-4
+			.col-lg-4
+				if msg
+					label.alert.alert-danger #{msg}
+				fieldset
+					legend Update your details
+					form(method='post',action='/edit_user/update')
+						input(type='hidden',name='_csrf',value=csrfToken)
+						.form-group
+							label First name
+							input.form-control(type='text',name='firstname',value='#{user.firstname}')
+							label Last name
+							input.form-control(type='text',name='lastname',value='#{user.lastname}')
+						.form-group
+							label Username
+							input.form-control(type='text',name='username',value='#{user.username}')
+						.form-group
+							label Email
+							input.form-control(type='email',name='email',value='#{user.email}')
+						.form-group
+							label Phone number
+							input.form-control(type='number',name='phone_number',value='0#{user.phone_number}')
+						.form-group
+							label Alternate phone number
+							input.form-control(type='number',name='alternate_phone_number',value='0#{user.alternate_phone_number}')
+						button.btn.btn-success(type='submit') Update

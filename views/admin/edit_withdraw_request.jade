@@ -1,0 +1,16 @@
+extends admin_layout
+block content
+	.container
+		.row
+			.col-lg-4
+			.col-lg-4
+				fieldset
+					legend Edit withrawal request
+					form(method='post',action='edit_withdraw_request/edit?id=#{id}')
+						input(type='hidden',name='_csrf',value=csrfToken)
+						.form-group
+							label Done
+							select.form-control(name='done',value='#{done}')
+								option No
+								option Yes
+						button.btn.btn-success(type='submit') Edit

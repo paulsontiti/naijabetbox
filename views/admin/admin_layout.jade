@@ -1,0 +1,50 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        title Admin: Naijabetbox
+        // Bootstrap core CSS
+        link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+        // IE10 viewport hack for Surface/desktop Windows 8 bug
+        link(href='../../assets/css/ie10-viewport-bug-workaround.css', rel='stylesheet')
+        // Custom styles for this template
+        link(href='/stylesheets/style.css', rel='stylesheet')
+        // Just for debugging purposes. Don't actually copy these 2 lines!
+        //if lt IE 9
+        script(src='../../assets/js/ie8-responsive-file-warning.js')
+        script(src='../../assets/js/ie-emulation-modes-warning.js')
+        // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+        //if lt IE 9
+        script(src='https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js')
+        script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+    body
+        .container
+            nav.navbar.navbar-inverse.navbar-fixed-top
+                .container
+                    .navbar-header
+                        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+                            span.sr-only Toggle navigation
+                            span.icon-bar
+                            span.icon-bar
+                            span.icon-bar
+                        a.navbar-brand(href='/') NaijaBetBox
+                    #navbar.collapse.navbar-collapse
+                        ul.nav.navbar-nav
+                            li(class=(title === 'Users' ? 'active' : ''))
+                                a(href='/admin/user') Users
+                            li(class=(title === 'Users request' ? 'active' : ''),id='userRequest')
+                                a User request
+                                div(id='ulUserRequest')
+                                        a(href='/admin/fund_request') Fund bet
+                                        span  | 
+                                        a(href='/admin/recharge_request') Buy airtime
+                                        span  | 
+                                        a(href='/admin/withdraw_request') Withdraw cash
+                        
+                // /.nav-collapse
+            a.admin_logout.btn.btn-success(href='/login/logout') Logout
+        block content
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+        script(src='/javascripts/bootstrap.js')
+        script(src='/javascripts/custom/jquery_dropdown.js')

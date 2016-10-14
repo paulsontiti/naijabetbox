@@ -1,0 +1,100 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title #{title}: Naijabetbox
+    // Bootstrap core CSS
+    link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    link(href='../../assets/css/ie10-viewport-bug-workaround.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='/stylesheets/style.css', rel='stylesheet')
+    // Just for debugging purposes. Don't actually copy these 2 lines!
+    //if lt IE 9
+      script(src='../../assets/js/ie8-responsive-file-warning.js')
+    script(src='../../assets/js/ie-emulation-modes-warning.js')
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js')
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+  body
+    .container
+        nav.navbar.navbar-inverse.navbar-fixed-top
+          .container
+            include login-partial
+          .container
+            .navbar-header
+              button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a(href='/')            
+                img.logo(src='/images/naijabetbox logo.png')
+            #navbar.collapse.navbar-collapse
+              ul.nav.navbar-nav
+                li(class=(title === 'Home' ? 'active' : ''))
+                  a(href='/') Home
+                li(class=(title === 'Fund bet' ? 'active' : ''))
+                  a(href='/fund_bet') Fund bet
+                li(class=(title === 'Buy airtime' ? 'active' : ''))
+                  a(href='/buy_airtime') Buy airtime
+                li(class=(title === 'Withdraw cash' ? 'active' : ''))
+                  a(href='/withdraw_cash') Withdraw cash      
+                li(class=(title === 'Contact us' ? 'active' : ''))
+                  a(href='/contact') Contact Us             
+            // /.nav-collapse
+        .container
+          if title != 'Dashboard'
+            if user
+              .user-info
+                 label Welcome   
+                 a(href='/dashboard')  #{user.username}
+                 br
+                 label Main balance :
+                 span  N #{user.balance}
+                 br
+                 label Bonus :
+                 span  N #{user.bonus}
+                 br
+                 label Total balance:   
+                 span     N #{user.total_balance}
+                 br
+                 label Withdrawable balance:   
+                 span     N #{user.withdrawable_balance}
+              
+
+           
+        // /.container
+        
+        block content
+        footer
+          .container
+            .row
+              .col-lg-2
+                h4 Our partners
+                ul
+                  li 9jabet
+                  li surebet247
+                  li merrybet
+                  li nairabet
+              .col-lg-2
+                h4 Social media
+                ul
+                  li facebook
+                  li twiter
+                  li whatsapp
+               .col-lg-2
+                 h4 Contact us
+                 ul
+                   li mobile: 788900000
+                   li email: naijabetbox@gmail.com
+          div.copyright Copyright &copy; 2016 Naijabetbox.All rights reserved    
+        //
+          Bootstrap core JavaScript
+          ==================================================
+        // Placed at the end of the document so the pages load faster
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+        script(src='/javascripts/bootstrap.js')
+
