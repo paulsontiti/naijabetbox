@@ -1,31 +1,54 @@
 extends admin_layout
 block content
 	.container
-		h1 Request for withdrawal
-		if request
-			div.table-responsive
-				table.table.table-bordered.table-striped
-					thead
-						tr
-							th First name
-							th Surname
-							th Bank
-							th Account Number
-							th Amount
-							th Requested date
-							th Done
-							th Actions
-					tbody
-						each req,i in request
+		.row
+			.col-lg-6
+				h1 Request for withdrawal
+			.col-lg-3
+			.col-lg-3
+				form(method="post",action="/admin/withdraw_request/search")
+					if searchMsg
+						label.alert.alert-danger #{searchMsg}
+					if errors
+						label.alert.alert-danger #{errors[0].msg}
+					input(type='hidden',name='_csrf',value=csrfToken)
+					.form-group
+						label Search by:
+						select.form-control(name='searchTerm')
+							option select search term
+							option bank
+							option account number
+							option amount
+							option requested date
+							option done
+					input.form-control(type='text',name='searchValue',required='true',autofocus='true')
+					span 
+					button.btn.btn-success(type='submit') Search
+		.row
+			if request.length > 0
+				div.table-responsive
+					table.table.table-bordered.table-striped
+						thead
 							tr
-								td #{req.firstname}
-								td #{req.surname}
-								td #{req.bank}
-								td #{req.account_number}
-								td #{req.amount}
-								td #{req.request_date}
-								td #{req.done}
-								td
-									a(href='/admin/edit_withdraw_request?id=#{req._id}&done=#{req.done}') Edit
-		else
-			h4 No request	
+								th First name
+								th Surname
+								th Bank
+								th Account Number
+								th Amount
+								th Requested date
+								th Done
+								th Actions
+						tbody
+							each req,i in request
+								tr
+									td #{req.firstname}
+									td #{req.surname}
+									td #{req.bank}
+									td #{req.account_number}
+									td #{req.amount}
+									td #{req.request_date}
+									td #{req.done}
+									td
+										a(href='/admin/edit_withdraw_request?id=#{req._id}&done=#{req.done}') Edit
+			else
+				h4 No request	

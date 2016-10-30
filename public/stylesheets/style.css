@@ -40,11 +40,12 @@ div.logout{
 }
 div.login a{
 	margin-right: 10px;
-	color:white;
+	margin-bottom: 10px;
 }
 div.login a.forgot-password{
-	color: green;
-	margin-right:40px;
+	color: white;
+	margin-top:40px;
+	text-decoration: none;
 }
 div.login a.register{
 	color: red;
@@ -106,4 +107,8 @@ table.table.table-bordered.table-striped{
 }
 table.table.table-bordered.table-striped thead tr th{
 	text-align: center;
+}
+form.search{
+	float: right;
+	margin-bottom: 10px;
 }

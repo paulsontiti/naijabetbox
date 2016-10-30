@@ -26,7 +26,7 @@ router.post('/login', function(req, res, next) {
 		res.render('login',{title:'Login',errors:errors,csrfToken:req.csrfToken()});
 	}else{
        
-  User.getUserByUsername(username,function(err,user){
+  User.getAUser({username:username},function(err,user){
     if(err){
     	console.log(err);
     }else if(user === null){
@@ -48,7 +48,7 @@ router.post('/login', function(req, res, next) {
 			
     	}else{
     		var errors = [{msg:'username and password do not match'}];
-    		res.render('login',{title:'Home',errors:errors,csrfToken:req.csrfToken()});
+    		res.render('login',{title:'Login',errors:errors,csrfToken:req.csrfToken()});
     	}
     }
   })

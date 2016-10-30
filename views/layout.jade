@@ -1,5 +1,5 @@
 doctype html
-html(lang='en')
+html(lang='en' ng-app="app")
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
@@ -53,16 +53,16 @@ html(lang='en')
                  a(href='/dashboard')  #{user.username}
                  br
                  label Main balance :
-                 span  N #{user.balance}
+                 span  N #{user.balance.toFixed(2)}
                  br
                  label Bonus :
-                 span  N #{user.bonus}
+                 span  N #{user.bonus.toFixed(2)}
                  br
                  label Total balance:   
-                 span     N #{user.total_balance}
+                 span     N #{user.total_balance.toFixed(2)}
                  br
                  label Withdrawable balance:   
-                 span     N #{user.withdrawable_balance}
+                 span     N #{user.withdrawable_balance.toFixed(2)}
               
 
            
@@ -79,22 +79,25 @@ html(lang='en')
                   li surebet247
                   li merrybet
                   li nairabet
+                  li supabet
               .col-lg-2
                 h4 Social media
                 ul
                   li facebook
-                  li twiter
+                  li twitter
                   li whatsapp
-               .col-lg-2
+               .col-lg-3
                  h4 Contact us
                  ul
                    li mobile: 788900000
                    li email: naijabetbox@gmail.com
-          div.copyright Copyright &copy; 2016 Naijabetbox.All rights reserved    
+          div.copyright Copyright &copy; #{new Date().getFullYear()} Naijabetbox.All rights reserved    
         //
           Bootstrap core JavaScript
           ==================================================
         // Placed at the end of the document so the pages load faster
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
         script(src='/javascripts/bootstrap.js')
+        script(src='/javascripts/angular/lib/angular.js')
+        script(src='/javascripts/angular/app.js')
 

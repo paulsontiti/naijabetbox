@@ -17,9 +17,11 @@ block content
 					form(method='post',action='/fund_bet/fund_bet')
 						input(type='hidden',name='_csrf',value=csrfToken)
 						.form-group
+							sup *
 							label Betting username
-							input.form-control(type='text',placeholder='your username for betting',name='username',autofocus=true)
+							input.form-control(type='text',placeholder='your username for betting',name='username',autofocus=true,required='true')
 						.form-group
+							sup *
 							label Betting company
 							select.form-control(name='bet_company')
 								option select your betting company
@@ -27,10 +29,12 @@ block content
 								option Nairabet
 								option Surebet247
 								option Merrybet
+								option Supabet
 						
 						.form-group
+							sup *
 							label Amount
-							input.form-control(type='number',placeholder='how much do you want to fund?',name='amount')
+							input.form-control(type='number',placeholder='how much do you want to fund?',name='amount',required='true')
 						br
 						button.btn.btn-success(type='submit') Fund bet
 

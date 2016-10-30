@@ -16,31 +16,31 @@ block content
           .form-group
              sup *
              label First name
-             input.form-control(name='firstname',type='text',placeholder='enter your first name',autofocus='true',value=(!userSignUp ? ' ' : '#{userSignUp.firstname}'))
+             input.form-control(name='firstname',type='text',placeholder='enter your first name',autofocus='true',value=(!userSignUp ? ' ' : '#{userSignUp.firstname}'),required='true')
           .form-group
              sup *
              label Last name
-             input.form-control(name='lastname',type='text',placeholder='enter your last name',value=(!userSignUp ? ' ' : '#{userSignUp.lastname}'))   
+             input.form-control(name='lastname',type='text',placeholder='enter your last name',value=(!userSignUp ? ' ' : '#{userSignUp.lastname}'),required='true')   
           .form-group
              sup *
              label Username
-             input.form-control(name='username',type='text',placeholder='enter your username',value=(!userSignUp ? ' ' : '#{userSignUp.username}'))   
+             input.form-control(name='username',type='text',placeholder='enter your username',value=(!userSignUp ? ' ' : '#{userSignUp.username}'),required='true')   
           .form-group
              sup *
              label Email
-             input.form-control(name='email',type='email',placeholder='enter your email address',value=(!userSignUp ? ' ' : '#{userSignUp.email}'))  
+             input.form-control(name='email',type='email',placeholder='enter your email address',value=(!userSignUp ? ' ' : '#{userSignUp.email}'),required='true')  
           .form-group
              sup *
              label Password
-             input.form-control(name='password',type='password',placeholder='enter your password')       
+             input.form-control(name='password',type='password',placeholder='enter your password',required='true')       
           .form-group
              sup *
              label Confirm password
-             input.form-control(name='confirmPassword',type='password',placeholder='confirm your password')  
+             input.form-control(name='confirmPassword',type='password',placeholder='confirm your password',required='true')  
           .form-group
              sup *
              label Phone number
-             input.form-control(name='phone_number',type='text',placeholder='enter your phone number',value=(!userSignUp ? ' ' : '#{userSignUp.phone_number}')) 
+             input.form-control(name='phone_number',type='text',placeholder='enter your phone number',value=(!userSignUp ? ' ' : '#{userSignUp.phone_number}'),required='true') 
           .form-group
              label Alternate phone number
              input.form-control(name='alternate_phone_number',type='text',placeholder='enter an alternate phone number',value=(!userSignUp ? ' ' : '#{userSignUp.alternate_phone_number}'))     

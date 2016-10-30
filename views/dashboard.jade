@@ -26,16 +26,16 @@ block content
 				span    #{user.joinedDate}
 				br
 				label Balance:   
-				span   N #{user.balance}
+				span   N #{user.balance.toFixed(2)}
 				br
 				label Bonus:   
-				span   N #{user.bonus}
+				span   N #{user.bonus.toFixed(2)}
 				br
 				label Total:   
-				span    N #{user.total_balance}
+				span    N #{user.total_balance.toFixed(2)}
 				br
 				label Withdrawable balance:   
-				span     N #{user.withdrawable_balance}
+				span     N #{user.withdrawable_balance.toFixed(2)}
 				br
 				a.btn.btn-success(href='/edit_user') Edit/Update
 

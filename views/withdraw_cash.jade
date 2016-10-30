@@ -21,15 +21,15 @@ block content
                   .form-group
                      sup *
                      label First name
-                     input.form-control(type='text',placeholder='your firstname as with your bank account details',name='firstname',autofocus=true)
+                     input.form-control(type='text',placeholder='your firstname as with your bank account details',name='firstname',autofocus=true,required='true')
                   .form-group
                      sup *
                      label Surname
-                     input.form-control(type='text',placeholder='your surname as with your bank account details',name='surname')
+                     input.form-control(type='text',placeholder='your surname as with your bank account details',name='surname',required='true')
                   .form-group
                      sup *
                      label Bank
-                     select.form-control(name='bank')
+                     select.form-control(name='bank',required='true')
                        option select your bank
                        option Zenith
                        option First
@@ -46,11 +46,11 @@ block content
                   .form-group
                     sup *
                     label Account number
-                    input.form-control(type='text',placeholder='your account number',name='account_number')
+                    input.form-control(type='text',placeholder='your account number',name='account_number',required='true')
                   .form-group
                     sup *
                     label Amount
-                    input.form-control(type='number',placeholder='amount to withdraw',name='amount')
+                    input.form-control(type='number',placeholder='amount to withdraw',name='amount',required='true')
                   br
                   button.btn.btn-success(type='submit') Withdraw
 

@@ -19,7 +19,7 @@ block content
 						.form-group
 							sup *
 							label Network
-							select.form-control(name='network')
+							select.form-control(name='network',required='true')
 								option select a network
 								option Mtn
 								option Glo
@@ -28,11 +28,11 @@ block content
 						.form-group
 							sup *
 							label Phone number
-							input.form-control(type='text',placeholder='your phone number',name='phone_number')
+							input.form-control(type='text',placeholder='your phone number',name='phone_number',required='true')
 						.form-group
 							sup *
 							label Amount
-							input.form-control(type='number',placeholder='how much recharge do you want?',name='amount')
+							input.form-control(type='number',placeholder='how much recharge do you want?',name='amount',required='true')
 						br
 						button.btn.btn-success(type='submit') Recharge
 

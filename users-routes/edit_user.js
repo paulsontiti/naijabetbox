@@ -7,7 +7,7 @@ var _user = null;
 
 /* GET edit_user page. */
 router.get('/',authObj.auth,function(req, res, next) {
-	User.getUserByUsername(req.session.username,function(err,user){
+	User.getAUser({username:req.session.username},function(err,user){
 		if(err){
 			console.log(err);
 		}else{
@@ -41,25 +41,28 @@ router.post('/update',function(req,res,next){
  	 res.locals.user = _user;
    res.render('edit_user',{errors:err,title:'Update',csrfToken:req.csrfToken()});
  }else{
- 	var updateParams = {
- 			firstname:firstname,
- 			lastname:lastname,
- 			username:username,
- 			email:email,
- 			phone_number:phone_number,
- 			alternate_phone_number:alternate_phone_number
- 	};
- 	User.updateAUser(req.session.username,updateParams,function(err,user){
-               if(err){
-               	if(err.code === 11000){
-               		res.locals.user = _user;
-               		res.render('edit_user',{title:'Edit user',msg:'username already in use.Try another',csrfToken:req.csrfToken()});
-               	}
-               }else{
-               	res.redirect('/login');
-               }
-           });
- }
+	 		var updateParams = {
+		 			firstname:firstname,
+		 			lastname:lastname,
+		 			username:username,
+		 			email:email,
+		 			phone_number:phone_number,
+		 			alternate_phone_number:alternate_phone_number
+		 	};
+		 	User.updateAUser({username:req.session.username},updateParams,function(err,user){
+		               if(err){
+		               	if(err.code){
+		 				res.locals.user = _user;
+		 				res.locals.user.username = username;
+			            res.render('edit_user',{title:'Update',msg:'username already in use.Try another',csrfToken:req.csrfToken()});
+		 			}
+		               }else{
+		               	req.session.username = username;
+		               	res.redirect('/dashboard');
+		               }
+		    });
+ 
+	 	}
 });
 
 module.exports = router;

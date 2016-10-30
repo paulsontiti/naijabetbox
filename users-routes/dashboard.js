@@ -5,7 +5,7 @@ var User = require('../models/user');
 var authObj = require('../models/auth');
 
 router.get('/',authObj.auth,function(req,res){
-	User.getUserByUsername(req.session.username,function(err,user){
+	User.getAUser({username:req.session.username},function(err,user){
 		if(err){
 			console.log(err);
 		}else{

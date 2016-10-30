@@ -7,7 +7,7 @@ var RechargeRequest = require('../models/recharge_request');
 var _user = null;
 //get users home page
 router.get('/',authObj.auth,function(req,res,next){
-       User.getUserByUsername(req.session.username,function(err,user){
+       User.getAUser({username:req.session.username},function(err,user){
       if(err){
         console.log(err);
       }else{
@@ -50,7 +50,7 @@ router.post('/recharge',function(req,res){
                 total_balance:total,
                 withdrawable_balance:withdrawableBalance
               };
-              User.updateAUser(username,updateParams,function(err){
+              User.updateAUser({username:username},updateParams,function(err){
                        if(err){
                         console.log(err);
                        }else{
@@ -65,7 +65,7 @@ router.post('/recharge',function(req,res){
                                           res.locals.user = _user;
                                   res.render('buy_airtime',{title:'Buy airtime',msg:'Something bad happened',csrfToken:req.csrfToken()});
                                 }else{
-                                User.getUserByUsername(username,function(err,user){
+                                User.getAUser({username:username},function(err,user){
                                           _user = user;
                                           res.locals.user = user;
                                  res.render('buy_airtime',{title:'Buy airtime',confirmMsg:'Your request has been sent',csrfToken:req.csrfToken()});

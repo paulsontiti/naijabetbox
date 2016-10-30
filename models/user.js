@@ -64,14 +64,14 @@ var User = module.exports = mongoose.model('User',userSchema);
 module.exports.createUser =function(newUser,callback){
 	newUser.save(callback);
 };
-module.exports.getUserByUsername =function(username,callback){
-	User.findOne({username:username},callback);
+module.exports.getAUser =function(query,callback){
+	User.findOne(query,callback);
 };
 module.exports.getAllUsers =function(callback){
 	User.find(callback);
 };
-module.exports.updateAUser =function(username,updateParams,callback){
-	User.findOneAndUpdate({username:username},{$set:updateParams},callback);
+module.exports.updateAUser =function(query,updateParams,callback){
+	User.findOneAndUpdate(query,{$set:updateParams},callback);
 };
 module.exports.getUserById =function(id,callback){
 	User.findById(id,callback);

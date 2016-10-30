@@ -10,7 +10,7 @@ block content
 						input(type='hidden',name='_csrf',value=csrfToken)
 						.form-group
 							label Done
-							select.form-control(name='done',value='#{done}')
+							select.form-control(name='done',value='#{done}',required='true')
 								option No
 								option Yes
 						button.btn.btn-success(type='submit') Edit

@@ -41,9 +41,11 @@ html
                                         a(href='/admin/recharge_request') Buy airtime
                                         span  | 
                                         a(href='/admin/withdraw_request') Withdraw cash
+                        div.logout
+                            a.btn.btn-success(href='/login/logout') Logout
                         
                 // /.nav-collapse
-            a.admin_logout.btn.btn-success(href='/login/logout') Logout
+            
         block content
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
         script(src='/javascripts/bootstrap.js')

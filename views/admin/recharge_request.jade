@@ -1,29 +1,54 @@
 extends admin_layout
 block content
 	.container
-		h1 Request for airtime
-		if request
-			div.table-responsive
-				table.table.table-bordered.table-striped
-					thead
-						tr
-							th Username
-							th Network
-							th Phone Number
-							th Amount
-							th Requested date
-							th Done
-							th Actions
-					tbody
-						each req,i in request
-							tr
-								td #{req.username}
-								td #{req.network}
-								td #{req.phone_number}
-								td #{req.amount}
-								td #{req.request_date}
-								td #{req.done}
-								td
-									a(href='/admin/edit_recharge_request?id=#{req._id}&done=#{req.done}') Edit
-		else
-			h4 No request	
+		.row
+			.col-lg-6
+				h1 Request for airtime
+			.col-lg-3
+			.col-lg-3
+				form(method="post",action="/admin/recharge_request/search")
+					if searchMsg
+						label.alert.alert-danger #{searchMsg}
+					if errors
+						label.alert.alert-danger #{errors[0].msg}
+					input(type='hidden',name='_csrf',value=csrfToken)
+					.form-group
+						label Search by:
+						select.form-control(name='searchTerm')
+							option select search term
+							option username
+							option network
+							option amount
+							option phone number
+							option requested date
+							option done
+					input.form-control(type='text',name='searchValue',required='true',autofocus='true')
+					span 
+					button.btn.btn-success(type='submit') Search
+		.row
+			.col-lg-12
+				if request.length > 0
+					div.table-responsive
+						table.table.table-bordered.table-striped
+							thead
+								tr
+									th Username
+									th Network
+									th Phone Number
+									th Amount
+									th Requested date
+									th Done
+									th Actions
+							tbody
+								each req,i in request
+									tr
+										td #{req.username}
+										td #{req.network}
+										td #{req.phone_number}
+										td #{req.amount}
+										td #{req.request_date}
+										td #{req.done}
+										td
+											a(href='/admin/edit_recharge_request?id=#{req._id}&done=#{req.done}') Edit
+				else
+					h4 No request	

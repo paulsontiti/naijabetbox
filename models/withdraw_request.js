@@ -37,8 +37,8 @@ var WithdrawRequest = module.exports = mongoose.model('WithdrawRequest',requsetS
 module.exports.createWithdrawRequest =function(request,callback){
 	request.save(callback);
 };
-module.exports.getAllWithdrawRequest =function(callback){
-	WithdrawRequest.find(callback);
+module.exports.getAllWithdrawRequest =function(query,callback){
+	WithdrawRequest.find(query,callback);
 };
 module.exports.updateAWithdrawalRequest = function(id,done,callback){
 	WithdrawRequest.findOneAndUpdate({_id:id},{$set:{done:done}},callback);

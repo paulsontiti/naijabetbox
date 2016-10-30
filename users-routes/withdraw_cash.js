@@ -7,7 +7,7 @@ var withdrawRequest = require('../models/withdraw_request');
 var _user = null;
 //get users home page
 router.get('/',authObj.auth,function(req,res,next){
-		User.getUserByUsername(req.session.username,function(err,user){
+		User.getAUser({username:req.session.username},function(err,user){
 			if(err){
 				console.log(err);
 			}else{
@@ -55,11 +55,11 @@ router.post('/withdraw',function(req,res,next){
 				total_balance:total,
 				withdrawable_balance:withdrawableBalance
 			};
-			User.updateAUser(username,updateParams,function(err,user){
+			User.updateAUser({username:username},updateParams,function(err,user){
                if(err){
                	console.log(err);
                }else{
-               	User.getUserByUsername(username,function(err,user){
+               	User.getAUser({username:username},function(err,user){
                	res.locals.user = user;
                	_user = user;
                	var request = new withdrawRequest({

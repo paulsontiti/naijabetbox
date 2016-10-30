@@ -33,8 +33,8 @@ var RechargeRequest = module.exports = mongoose.model('RechargeRequest',recharge
 module.exports.createRechargeRequest = function(request,callback){
 	request.save(callback);
 };
-module.exports.getAllRechargeRequest = function(callback){
-	RechargeRequest.find(callback);
+module.exports.getAllRechargeRequest = function(query,callback){
+	RechargeRequest.find(query,callback);
 };
 module.exports.updateARechargeRequest = function(id,done,callback){
 	RechargeRequest.findOneAndUpdate({_id:id},{$set:{done:done}},callback);

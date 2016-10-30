@@ -25,8 +25,11 @@ var dashboard = require('./users-routes/dashboard');
 var withdraw_cash = require('./users-routes/withdraw_cash');
 var buy_airtime = require('./users-routes/buy_airtime');
 var edit_user = require('./users-routes/edit_user');
+var forgot_password = require('./users-routes/forgot_password');
 var admin = require('./admin-routes/index');
 var admin_user = require('./admin-routes/user');
+var api_users = require('./api/users');
+var api_user = require('./api/user');
 var credit_account = require('./admin-routes/credit_account');
 var fund_request = require('./admin-routes/fund_request');
 var recharge_request = require('./admin-routes/recharge_request');
@@ -93,6 +96,7 @@ app.use('/fund_bet', fund_bet);
 app.use('/dashboard', dashboard);
 app.use('/buy_airtime', buy_airtime);
 app.use('/edit_user', edit_user);
+app.use('/forgot_password', forgot_password);
 app.use('/admin', admin);
 app.use('/admin/user', admin_user);
 app.use('/admin/fund_request', fund_request);
@@ -103,6 +107,8 @@ app.use('/admin/edit_recharge_request', edit_recharge_request);
 app.use('/admin/edit_fund_request', edit_fund_request);
 app.use('/admin/edit_withdraw_request', edit_withdraw_request);
 app.use('/admin_unauthorised', admin_unauthorised);
+app.use('/api/users', api_users);
+app.use('/api/user', api_user);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -6,7 +6,7 @@ var User = require('../models/user');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	User.getUserByUsername(req.session.username,function(err,user){
+	User.getAUser({username:req.session.username},function(err,user){
       if(err){
         console.log(err);
       }else{

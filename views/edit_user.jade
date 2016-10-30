@@ -6,25 +6,29 @@ block content
 			.col-lg-4
 				if msg
 					label.alert.alert-danger #{msg}
+				ul.errors
+					if errors
+						each error,i in errors
+							li.alert.alert-danger #{error.msg}
 				fieldset
 					legend Update your details
 					form(method='post',action='/edit_user/update')
 						input(type='hidden',name='_csrf',value=csrfToken)
 						.form-group
 							label First name
-							input.form-control(type='text',name='firstname',value='#{user.firstname}')
+							input.form-control(type='text',name='firstname',value='#{user.firstname}',required='true')
 							label Last name
-							input.form-control(type='text',name='lastname',value='#{user.lastname}')
+							input.form-control(type='text',name='lastname',value='#{user.lastname}',required='true')
 						.form-group
 							label Username
-							input.form-control(type='text',name='username',value='#{user.username}')
+							input.form-control(type='text',name='username',value='#{user.username}',required='true')
 						.form-group
 							label Email
-							input.form-control(type='email',name='email',value='#{user.email}')
+							input.form-control(type='email',name='email',value='#{user.email}',required='true')
 						.form-group
 							label Phone number
-							input.form-control(type='number',name='phone_number',value='0#{user.phone_number}')
+							input.form-control(type='number',name='phone_number',value='#{user.phone_number}',required='true')
 						.form-group
 							label Alternate phone number
-							input.form-control(type='number',name='alternate_phone_number',value='0#{user.alternate_phone_number}')
+							input.form-control(type='number',name='alternate_phone_number',value='#{user.alternate_phone_number}',required='true')
 						button.btn.btn-success(type='submit') Update

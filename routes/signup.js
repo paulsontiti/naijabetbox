@@ -57,7 +57,8 @@ User.createUser(newuser,function(err,user){
 	      	res.render('signup',{title:'Sign up',msg:'username already in use.Try another',csrfToken:req.csrfToken()});
 	    }
     }else{
-    	res.redirect('/login');
+    	req.session.username = username;
+    	res.redirect('/dashboard');
       }
 	});
 }

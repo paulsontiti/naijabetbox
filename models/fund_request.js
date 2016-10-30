@@ -29,8 +29,8 @@ var FundRequest = module.exports = mongoose.model('FundRequest',fundSchema);
 module.exports.createFundRequest =function(request,callback){
 	request.save(callback);
 };
-module.exports.getAllFundRequest =function(callback){
-	FundRequest.find(callback);
+module.exports.getAllFundRequest =function(query,callback){
+	FundRequest.find(query,callback);
 };
 module.exports.updateAFundRequest = function(id,done,callback){
 	FundRequest.findOneAndUpdate({_id:id},{$set:{done:done}},callback);
