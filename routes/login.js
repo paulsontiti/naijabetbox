@@ -37,6 +37,7 @@ router.post('/login', function(req, res, next) {
     	var result = hashPassword.confirmPassword(user,password);
     	if(result){
                 req.session.username = user.username;
+                req.session.isAdmin = user.isAdmin;
                 res.locals.user = user;
                 res.redirect('/dashboard');			
     	}else{

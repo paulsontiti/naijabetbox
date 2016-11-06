@@ -12,7 +12,7 @@ module.exports ={
 				if(!req.session.username){
                      res.redirect('/login');
       			}else{
-      				if(req.session.username !== 'administrator'){
+      				if(req.session.isAdmin !== 'Yes'){
       					res.redirect('/admin_unauthorised');
       				}else{
       				res.locals.username = req.session.username;
