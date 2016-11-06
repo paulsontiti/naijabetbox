@@ -10,7 +10,7 @@ router.get('/',function(req,res,next){
 
 router.post('/change_password',function(req,res){
 	//Get form values
-	var username_email = req.body.username_email;
+	var username_email = req.body.username_email.toLowerCase();
 	var password = req.body.password;
 	var confirm_password = req.body.confirm_password;
 	//validate form values
