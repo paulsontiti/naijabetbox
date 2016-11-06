@@ -12,12 +12,11 @@ router.post('/sign-up',function(req,res,next){
 		//Get form values
 	var firstname = req.body.firstname;
 	var lastname = req.body.lastname;
-	var username = req.body.username;
+	var username = req.body.username.toLowerCase();
 	var email = req.body.email;
 	var password = req.body.password;
 	var phone_number = req.body.phone_number;
 	var alternate_phone_number = req.body.alternate_phone_number;
-	var confirmPassword = req.body.confirmPassword;
 
  //form validation
  req.check('firstname','First name is required').notEmpty();
