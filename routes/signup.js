@@ -1,8 +1,8 @@
 'use strict';
-var express = require('express');
-var router = express.Router();
-var User = require('../models/user');
-var hashPassword = require('../models/hash-password');
+var express = require('express'),
+router = express.Router(),
+User = require('../models/user'),
+hashPassword = require('../models/hash-password');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,13 +10,13 @@ router.get('/', function(req, res, next) {
 });
 router.post('/sign-up',function(req,res,next){
 		//Get form values
-	var firstname = req.body.firstname;
-	var lastname = req.body.lastname;
-	var username = req.body.username.toLowerCase();
-	var email = req.body.email;
-	var password = req.body.password;
-	var phone_number = req.body.phone_number;
-	var alternate_phone_number = req.body.alternate_phone_number;
+	var firstname = req.body.firstname,
+	lastname = req.body.lastname,
+	username = req.body.username.toLowerCase(),
+	email = req.body.email,
+	password = req.body.password,
+	phone_number = req.body.phone_number,
+	alternate_phone_number = req.body.alternate_phone_number;
 
  //form validation
  req.check('firstname','First name is required').notEmpty();
@@ -30,9 +30,9 @@ router.post('/sign-up',function(req,res,next){
  req.check('confirmPassword','Password do not match').equals(password);
 
 // hash the password
-var hash = hashPassword.saltHashPassword(password);
+var hash = hashPassword.saltHashPassword(password),
 //create a user
-var newuser = new User({
+newuser = new User({
 	firstname:firstname,
 	lastname:lastname,
 	email:email,

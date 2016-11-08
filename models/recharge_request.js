@@ -21,12 +21,12 @@ var rechargeSchema = mongoose.Schema({
 	request_date:{
         type:String,
         required:true,
-        default:new Date().getFullYear().toString() + '-'+ (new Date().getMonth() + 1).toString() + '-' + new Date().getDate().toString()
+        default:new Date().toLocaleString()
 	},
 	done:{
 		type:String,
-		required:true,
-		default:'No'
+		default:'No',
+		required:true
 	}
 });
 var RechargeRequest = module.exports = mongoose.model('RechargeRequest',rechargeSchema);

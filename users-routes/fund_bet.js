@@ -1,10 +1,10 @@
 'use strict';
-var express = require('express');
-var router = express.Router();
-var authObj = require('../models/auth');
-var User = require('../models/user');
-var FundRequest = require('../models/fund_request');
-var _user = null;
+var express = require('express'),
+router = express.Router(),
+authObj = require('../models/auth'),
+User = require('../models/user'),
+FundRequest = require('../models/fund_request'),
+_user = null;
 //get users home page
 router.get('/',authObj.auth,function(req,res,next){
         User.getAUser({username:req.session.username},function(err,user){
@@ -42,11 +42,11 @@ router.post('/fund_bet',function(req,res){
            res.locals.user = _user;
             res.render('fund_bet',{title:'Fund bet',msg:'Insuficient balance!!.Please credit your Naijabetbox account and try agiain.\nNote that we do not give bonus for Nairabet',csrfToken:req.csrfToken()});
        }else{
-              var balance = amount > balance ? 0 : (balance - amount);
-              var total = amount > balance ? total - amount : (bonus + balance);
-              var bonus = amount > balance ? total - balance : bonus;
-              var withdrawableBalance = amount > balance ? 0 : balance - balance * 0.025;
-              var updateParams = {
+              var balance = amount > balance ? 0 : (balance - amount),
+              total = amount > balance ? total - amount : (bonus + balance),
+              bonus = amount > balance ? total - balance : bonus,
+              withdrawableBalance = amount > balance ? 0 : balance - balance * 0.025,
+              updateParams = {
                 balance:balance,
                 total_balance:total,
                 bonus:bonus,

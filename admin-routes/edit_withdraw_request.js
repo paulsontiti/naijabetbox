@@ -1,8 +1,8 @@
 'use strict';
-var express = require('express');
-var router = express.Router();
-var request = require('../models/withdraw_request');
-var authObj = require('../models/auth');
+var express = require('express'),
+router = express.Router(),
+request = require('../models/withdraw_request'),
+authObj = require('../models/auth');
 
 /* GET credit_account page. */
 router.get('/',authObj.adminAuth,function(req, res, next) {

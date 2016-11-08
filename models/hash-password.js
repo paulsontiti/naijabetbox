@@ -1,6 +1,6 @@
 'use strict';
-var bcrypt = require('bcryptjs');
-var crypto = require('crypto');
+var bcrypt = require('bcryptjs'),
+crypto = require('crypto');
 			/**
 			 * generates random string of characters i.e salt
 			 * @function
@@ -28,8 +28,8 @@ var crypto = require('crypto');
 			};
 			module.exports = {
 					  saltHashPassword : function(userpassword) {
-				    var salt = genRandomString(16); /** Gives us salt of length 16 */
-				    var passwordData = sha512(userpassword, salt);
+				    var salt = genRandomString(16), /** Gives us salt of length 16 */
+				    passwordData = sha512(userpassword, salt);
 				    return{
 				    	password:userpassword,
 				    	hashPassword:passwordData.passwordHash,
@@ -38,9 +38,9 @@ var crypto = require('crypto');
 				},
 				confirmPassword : function(user,password){
 					//get user password and salt from db
-                   var userPassword = user.password,userSalt = user.salt;
+                   var userPassword = user.password,userSalt = user.salt,
                    //hash the salt and supplied password
-                  var hash = sha512(password,userSalt).passwordHash;
+                  hash = sha512(password,userSalt).passwordHash;
                    //check if hash matches userPassword
                    if(hash === userPassword){
                    	return true;

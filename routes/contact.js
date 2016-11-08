@@ -1,8 +1,8 @@
 'use strict';
-var express = require('express');
-var router = express.Router();
-var nodemailer = require('nodemailer');
-var User = require('../models/user');
+var express = require('express'),
+router = express.Router(),
+nodemailer = require('nodemailer'),
+User = require('../models/user');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -17,11 +17,11 @@ router.get('/', function(req, res, next) {
 });
 router.post('/send',function(req,res,next){
 	//Get form values
-	var username = req.body.username;
-	var email = req.body.email;
-	var subject = req.body.subject;
-	var phone = req.body.phonenumber;
-	var message = req.body.message;
+	var username = req.body.username,
+	email = req.body.email,
+	subject = req.body.subject,
+	phone = req.body.phonenumber,
+	message = req.body.message;
 
  //form validation
  req.check('username','Username is required').notEmpty();

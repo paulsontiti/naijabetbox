@@ -1,10 +1,10 @@
 'use strict';
-var express = require('express');
-var router = express.Router();
-var User = require('../models/user');
-var hashPassword = require('../models/hash-password');
-var passport = require('passport');
-var localStrategy = require('passport-local').Strategy;
+var express = require('express'),
+router = express.Router(),
+User = require('../models/user'),
+hashPassword = require('../models/hash-password'),
+passport = require('passport'),
+localStrategy = require('passport-local').Strategy;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

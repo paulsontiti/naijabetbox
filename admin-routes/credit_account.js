@@ -1,8 +1,8 @@
 'use strict';
-var express = require('express');
-var router = express.Router();
-var User = require('../models/user');
-var authObj = require('../models/auth');
+var express = require('express'),
+router = express.Router(),
+User = require('../models/user'),
+authObj = require('../models/auth');
 
 /* GET credit_account page. */
 router.get('/',authObj.adminAuth,function(req, res, next) {

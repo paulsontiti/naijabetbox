@@ -1,9 +1,9 @@
 'use strict';
-var express = require('express');
-var router = express.Router();
-var request = require('../models/recharge_request');
-var authObj = require('../models/auth');
-var requests = null;
+var express = require('express'),
+router = express.Router(),
+request = require('../models/recharge_request'),
+authObj = require('../models/auth'),
+requests = null;
 
 router.get('/',authObj.adminAuth,function(req,res){
 	request.getAllRechargeRequest(function(err,rechargeRequest){
@@ -18,8 +18,8 @@ router.get('/',authObj.adminAuth,function(req,res){
 
 router.post('/search',function(req,res){
 //get form values
-var searchTerm = req.body.searchTerm;
-var value = req.body.searchValue;
+var searchTerm = req.body.searchTerm,
+value = req.body.searchValue;
 //validate form
 req.check('searchValue','Field is required').notEmpty();
 //check for errors

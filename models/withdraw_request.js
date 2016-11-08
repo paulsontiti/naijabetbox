@@ -25,8 +25,9 @@ var requsetSchema = mongoose.Schema({
 	request_date:{
         type:String,
         required:true,
-        default:new Date().getFullYear().toString() + '-'+ (new Date().getMonth() + 1).toString() + '-' + new Date().getDate().toString()
-	},done:{
+        default:new Date().toLocaleString()
+	},
+	done:{
 		type:String,
 		required:true,
 		default:'No'

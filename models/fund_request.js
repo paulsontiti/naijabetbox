@@ -17,7 +17,7 @@ var fundSchema = mongoose.Schema({
 	request_date:{
         type:String,
         required:true,
-        default:new Date().getFullYear().toString() + '-'+ (new Date().getMonth() + 1).toString() + '-' + new Date().getDate().toString()
+        default:new Date().toLocaleString()
 	},
 	done:{
 		type:String,

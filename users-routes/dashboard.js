@@ -1,8 +1,8 @@
 'use strict';
-var express = require('express');
-var router = express.Router();
-var User = require('../models/user');
-var authObj = require('../models/auth');
+var express = require('express'),
+router = express.Router(),
+User = require('../models/user'),
+authObj = require('../models/auth');
 
 router.get('/',authObj.auth,function(req,res){
 	User.getAUser({username:req.session.username},function(err,user){

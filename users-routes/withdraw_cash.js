@@ -1,10 +1,10 @@
 'use strict';
-var express = require('express');
-var router = express.Router();
-var authObj = require('../models/auth');
-var User = require('../models/user');
-var withdrawRequest = require('../models/withdraw_request');
-var _user = null;
+var express = require('express'),
+router = express.Router(),
+authObj = require('../models/auth'),
+User = require('../models/user'),
+withdrawRequest = require('../models/withdraw_request'),
+_user = null;
 //get users home page
 router.get('/',authObj.auth,function(req,res,next){
 		User.getAUser({username:req.session.username},function(err,user){

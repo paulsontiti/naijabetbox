@@ -1,8 +1,8 @@
 'use strict';
-var express = require('express');
-var router = express.Router();
-var User = require('../models/user');
-var hashPassword = require('../models/hash-password');
+var express = require('express'),
+router = express.Router(),
+User = require('../models/user'),
+hashPassword = require('../models/hash-password');
 /* GET login page. */
 router.get('/', function(req, res, next) {
 	res.render('login', { title: 'Login',csrfToken:req.csrfToken()});
@@ -15,8 +15,8 @@ res.redirect('/');
 
 router.post('/login', function(req, res, next) {
 	//get form values
-	var username = req.body.username.toLowerCase();
-	var password = req.body.password;
+	var username = req.body.username.toLowerCase(),
+	password = req.body.password;
 	//validate form values
 	req.check('username','username is required').notEmpty();
 	req.check('password','password is required').notEmpty();

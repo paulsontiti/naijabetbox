@@ -57,7 +57,7 @@ var userSchema = mongoose.Schema({
 	},
 	joinedDate:{
 		type:String,
-		default:new Date().getFullYear().toString() + '-'+ (new Date().getMonth() + 1).toString() + '-' + new Date().getDate().toString()
+		default:new Date().toLocaleString()
 	}
 });
 var User = module.exports = mongoose.model('User',userSchema);

@@ -1,9 +1,9 @@
 'use strict';
-var express = require('express');
-var router = express.Router();
-var User = require('../models/user');
-var authObj = require('../models/auth');
-var _user = null;
+var express = require('express'),
+router = express.Router(),
+User = require('../models/user'),
+authObj = require('../models/auth'),
+_user = null;
 
 /* GET edit_user page. */
 router.get('/',authObj.auth,function(req, res, next) {
@@ -19,12 +19,12 @@ router.get('/',authObj.auth,function(req, res, next) {
 });
 router.post('/update',function(req,res,next){
 		//Get form values
-	var firstname = req.body.firstname;
-	var lastname = req.body.lastname;
-	var username = req.body.username;
-	var email = req.body.email;
-	var phone_number = req.body.phone_number;
-	var alternate_phone_number = req.body.alternate_phone_number;
+	var firstname = req.body.firstname,
+	lastname = req.body.lastname,
+	username = req.body.username,
+	email = req.body.email,
+	phone_number = req.body.phone_number,
+	alternate_phone_number = req.body.alternate_phone_number;
 
  //form validation
  req.check('firstname','First name is required').notEmpty();
