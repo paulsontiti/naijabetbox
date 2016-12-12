@@ -24,7 +24,6 @@ router.post('/sign-up',function(req,res,next){
  req.check('username','Username is required').notEmpty();
  req.check('phone_number','Phone number is required').notEmpty();
  req.check('username','Username should be min of 6 and max of 20').isLength({min:6,max:20});
- req.check('email','Email is required').notEmpty();
  req.check('email','Invalid email').isEmail();
  req.check('password','Password is required').notEmpty();
  req.check('confirmPassword','Password do not match').equals(password);
