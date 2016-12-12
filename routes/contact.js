@@ -38,7 +38,7 @@ router.post('/send',function(req,res,next){
  	res.render('contact',{title:'Contact us',msg:'Message is required',csrfToken:req.csrfToken()});
  }
  else{
-			var transporter = nodemailer.createTransport({
+			var transporter = nodemailer.createTransport("SMTP",{
 					service:'Gmail',
 					auth: {
 						user:'titidprogrammer@gmail.com',
